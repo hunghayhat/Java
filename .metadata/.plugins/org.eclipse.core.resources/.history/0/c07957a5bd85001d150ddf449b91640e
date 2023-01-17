@@ -1,0 +1,22 @@
+public class Test {
+	public static void main(String[] args) {
+		MyDate md1 = new MyDate(15, 5, 2022);
+		MyDate md2 = new MyDate(1, 7, 2002);
+		MyDate md3 = new MyDate(7, 8, 2002);
+
+		System.out.println(md2); // 1/7/2002
+		System.out.println(md3);
+
+//		int a = 5;
+//		int b = 6;
+//		if (a == b)
+//			System.out.println("a = b");
+//		else
+//			System.out.println("a != b");
+//		if (md2 == md3)
+//			System.out.println("md2 = md3");
+//		else
+//			System.out.println("md2 != md3");
+		System.out.println("md2 so sanh voi md3: " +md2.equals(md3));
+	}
+}
