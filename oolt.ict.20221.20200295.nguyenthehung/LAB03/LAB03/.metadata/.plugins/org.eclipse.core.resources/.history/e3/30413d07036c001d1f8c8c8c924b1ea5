@@ -1,0 +1,18 @@
+import java.util.ArrayList;
+
+public class Store {
+	
+	private int numOfCurrentDVD = 0 ;
+	// Thuộc tính chứa số DVD có sẵn trong cửa hàng
+	ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<DigitalVideoDisc>(); 
+
+	// Phương thức thêm DVD vào cửa hàng
+	public void addDVD() {
+		
+	}
+	
+	// Phương thức xóa DVD khỏi cửa hàng
+	public void removeDVD() {
+		
+	}
+}
