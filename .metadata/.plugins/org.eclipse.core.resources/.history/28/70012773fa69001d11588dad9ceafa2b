@@ -1,0 +1,9 @@
+package community.com.model;
+
+public class testCode {
+public static void main(String[] args) {
+	String s = "Ho Chi Minh";
+	System.out.println(s.indexOf("Chi"));
+	
+}
+}

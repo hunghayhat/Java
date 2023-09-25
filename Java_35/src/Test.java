@@ -1,0 +1,17 @@
+
+public class Test {
+public static void main(String[] args) {
+	Ngay ngay1 = new Ngay(15,5,2021);
+	Ngay ngay2 = new Ngay(1, 7, 2002);
+	
+	TacGia tacGia1 = new TacGia(ngay2,"Andersen");
+	TacGia tacGia2 = new TacGia(ngay1,"Lafontent");
+	
+	Sach sach1 = new Sach("Lap trinh java",1000,2000,tacGia1);
+	Sach sach3 = new Sach("Lap trinh C++",1000,2000,tacGia1);
+	sach1.inTenSach();
+	
+	System.out.println("So sanh nam xuat ban sach 1 va 3: "+sach1.testNamXuatBan(sach3));
+	System.out.println("Gia cua sach "+sach1.getTenSach()+"sau khi giam la:"+ sach1.giaSauGiam(500));
+}
+}

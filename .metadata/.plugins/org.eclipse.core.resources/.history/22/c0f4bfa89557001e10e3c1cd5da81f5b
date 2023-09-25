@@ -1,0 +1,32 @@
+package a_Kien;
+
+import java.util.Random;
+
+public class Bai3_2 {
+	private int faceValue;
+	
+	public Dice() {
+		//Khởi tạo mặt của xx = 0
+		this.faceValue = 0;
+	}
+	
+	public int roll() {
+		Random random = new Random();
+		this.faceValue = random.nextInt(6) + 1;
+		return this.faceValue;
+	}
+	
+	public int getValue() {
+		return this.faceValue;
+	}
+	
+	public void setValue (int value) {
+		//Thiết lập giá trị của xx bằng giá trị đã cho
+		this.faceValue = value;
+	}
+	
+	public static void main(String[] args) {
+		Dice dice1 = new Dice();
+		
+	}
+}
