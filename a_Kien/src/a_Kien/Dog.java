@@ -33,5 +33,6 @@ public class Dog {
 		Dog dog2 = new Dog("Happy", "Maltese", 3);
 		System.out.println("Ten, loai, tuoi cua cho: "+ dog2.toString());
 		dog2.barking();
+		
 	}
 }
