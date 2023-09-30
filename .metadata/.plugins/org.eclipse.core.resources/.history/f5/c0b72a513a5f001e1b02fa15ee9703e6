@@ -1,0 +1,192 @@
+package a_Kien;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Book {
+	private String title; 	// Tiêu đề sách
+	private int score; 		// Điểm đánh giá 
+	
+	// Phương thức khởi tạo
+	public Book(String title, int score) {
+		this.title = title;
+		this.score = score;
+	}
+	
+	// Getter và setter
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setTitle() {
+		this.title = title;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void setScore() {
+		this.score = score;
+	}
+	
+	// Phương thức hiển thị thông tin sách
+	@Override
+	public String toString() {
+		return "Book [title = " + title + "score = " + score + "]";
+	}
+}
+
+	// Định nghĩa lớp Phone
+class Phone {
+		protected String owner; // Khai báo tên chủ sở hữu điện thoại
+		
+		public Phone(String string) {
+			// TODO Auto-generated constructor stub
+		}
+
+		//Phuơng thức nói chuyện
+		public void talk() {
+			System.out.println("(" + owner + ") dang trong cuoc goi.");
+		}
+	}
+	// Lớp AnsweringPhone kế thừa lớp Phone
+	class AnsweringPhone extends Phone {
+		protected String when; // Thời gian có thể gọi điện thoại
+		
+		public AnsweringPhone(String string, String string2) {
+			// TODO Auto-generated constructor stub
+		}
+
+		// Phương thức tự động trả lời điện thoại
+		public void autoAnswering() {
+			System.out.println("(" + owner + ") dang vang nha. Ban co the goi lai vao luc "+ when + ".");
+		}
+	}
+	
+	// Định nghĩa lớp SmartPhone kế thừa từ lớp AnsweringPhone
+	class SmartPhone extends AnsweringPhone {
+		private String game; // Tên game
+		
+		public SmartPhone(String string, String string2, String string3) {
+			// TODO Auto-generated constructor stub
+		}
+
+		// Phương thức game
+		public void playGame() {
+			System.out.println("(" + owner + ") dang choi "+ game + ". Ban co the goi lai vao luc " + when + ".");
+			
+		}
+	}
+class Vehicle {
+	private String color;
+	private int speed;
+	
+	//Phương thức khởi tạo
+	public Vehicle(String color, int speed) {
+		this.color = color;
+		this.speed = speed;
+	}
+	
+	// Phương thức hiển thị thông tin phương tiện
+	public void show() {
+		System.out.println("Mau sac: "+ color);
+		System.out.println("Toc do: "+ speed);
+	}
+}
+ 	// Lớp car kế thừa từ lớp Vehicle
+class Car extends Vehicle {
+	private int displacement; 	// Dung tích động cơ xe
+	private int gears; 			// Số lượng bánh xe
+	
+	// Phương thức khởi tạo
+	public Car(String color, int speed, int displacement, int gears) {
+		super(color, speed);
+		this.displacement = displacement;
+		this.gears = gears;
+	}
+	
+	// Phương thức khởi tạo thông tin xe
+	@Override
+	public void show() {
+		super.show();
+		System.out.println("Dung tich dong co: "+ displacement);
+		System.out.println("So luong banh xe: "+gears);
+	}
+}
+
+public class Practice3 {
+	public static void main(String[] args) {
+		ArrayList<Book> books = new ArrayList<>();
+		Scanner scanner = new Scanner(System.in);
+		
+		while (true) {
+			System.out.println("============================");
+            System.out.println("1. Them sach");
+            System.out.println("2. Tim kiem sach");
+            System.out.println("3. Hien thi tat ca sach");
+            System.out.println("4. Thoat");
+            System.out.println("============================");
+            System.out.print("Chon 1 lua chon: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            
+            switch (choice) {
+            case 1:
+                System.out.print("Tiêu đề sách: ");
+                String title = scanner.nextLine();
+                System.out.print("Điểm đánh giá sách: ");
+                int score = scanner.nextInt();
+                scanner.nextLine();
+                Book newBook = new Book(title, score);
+                books.add(newBook);
+                System.out.println("============================");
+                break;
+            case 2:
+                System.out.print("Nhập từ khóa tìm kiếm: ");
+                String searchKeyword = scanner.nextLine();
+                int count = 0;
+                for (Book book : books) {
+                    if (book.getTitle().contains(searchKeyword)) {
+                        System.out.println(book);
+                        count++;
+                    }
+                }
+                System.out.println("Số sách được tìm thấy: " + count);
+                System.out.println("============================");
+                break;
+            case 3:
+                System.out.println("Tổng số sách: " + books.size());
+                for (Book book : books) {
+                    System.out.println(book);
+                }
+                System.out.println("============================");
+                break;
+            case 4:
+                System.out.println("---> (Kết thúc phần 3-1) và (Bắt đầu phần 3-2)");
+                scanner.close();
+
+                Phone[] phones = {
+                    new Phone("Hwang Jin Yi"),
+                    new AnsweringPhone("Gil Dong", "ngày mai"),
+                    new SmartPhone("Min Guk", "buổi tối", "Galaga")
+                };
+
+                for (Phone phone : phones) {
+                    phone.talk();
+                    if (phone instanceof AnsweringPhone) {
+                        ((AnsweringPhone) phone).autoAnswering();
+                    }
+                    if (phone instanceof SmartPhone) {
+                        ((SmartPhone) phone).playGame();
+                    }
+                }
+                break;
+            default:
+                System.out.println("Lựa chọn không hợp lệ. Vui lòng chọn lại.");
+                System.out.println("============================");
+                break;
+            }
+		}
+	}
+}
