@@ -5,24 +5,28 @@ public class FlourPacker {
         else if (temp < goal) return false;
         else if (temp == goal) return true;
         else {
+            int maxBigCount = bigCount * 5;
             for (int i = bigCount; i > 0; i--) {
-                temp -= 5;
-                if (temp == goal) return true;
-                else if (temp > goal) continue;
+                if (maxBigCount == goal) return true;
+                else if (maxBigCount > goal){
+                    maxBigCount -= 5;
+                    continue;
+                }
                 else break;
             }
 
-            for (int j = smallCount; j > 0; j --) {
-                temp -= 1;
-                if (temp == goal) return true;
-                else if (temp > goal) continue;
+            for (int j = 1; j <= smallCount; j ++) {
+                maxBigCount ++;
+                if (maxBigCount == goal) return true;
+                else if (maxBigCount < goal) continue;
                 else break;
             }
+
         }
-        return true;
+        return false;
     }
 
     public static void main(String[] args) {
-        System.out.print(canPack(1,2,12));
+        System.out.print(canPack(2,10,19));
     }
 }
