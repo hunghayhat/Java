@@ -1,32 +1,28 @@
 public class FlourPacker {
+    // write code here
     public static boolean canPack (int bigCount, int smallCount, int goal) {
-        int temp = bigCount * 5 + smallCount;
-        if (bigCount < 0 || smallCount < 0 || goal < 0) return false;
-        else if (temp < goal) return false;
-        else if (temp == goal) return true;
+        if (bigCount < 0 || smallCount < 0 || goal < 1) return false;
         else {
-            int maxBigCount = bigCount * 5;
-            for (int i = bigCount; i > 0; i--) {
-                if (maxBigCount == goal) return true;
-                else if (maxBigCount > goal){
-                    maxBigCount -= 5;
-                    continue;
+            if (5 * bigCount + smallCount < goal) return false;
+            else if (5 * bigCount + smallCount == goal) return true;
+            else {
+                for (int i = 0; i <= bigCount; i++) {
+                    if (goal - 5 * i < 5|| i == bigCount) {
+                        goal = goal - 5*i;
+                        break;
+                    }
+                    else continue;
                 }
-                else break;
+                if (goal - smallCount <= 0) return true;
+                else return false;
             }
-
-            for (int j = 1; j <= smallCount; j ++) {
-                maxBigCount ++;
-                if (maxBigCount == goal) return true;
-                else if (maxBigCount < goal) continue;
-                else break;
-            }
-
         }
-        return false;
+
     }
 
     public static void main(String[] args) {
-        System.out.print(canPack(2,10,19));
+        System.out.println(canPack(2, 10, 18));
+
     }
+
 }

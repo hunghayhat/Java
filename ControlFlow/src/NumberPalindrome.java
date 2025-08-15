@@ -44,22 +44,37 @@ Tip: Be careful with reversing a number, you will need a parameter for comparing
 
 NOTE: The method isPalindrome needs to be defined as public static like we have been doing
  */
+//public class NumberPalindrome {
+//    public static boolean isPalindrome (int number) {
+//        if (number <= 9 && number >= -9) return true;
+//        else {
+//            int abs = Math.abs(number);
+//            int revertNumber = 0;
+//            while (abs > 0) {
+//                revertNumber = revertNumber * 10 + abs % 10;
+//                abs /= 10;
+//            }
+//            return Math.abs(number) == revertNumber;
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println(isPalindrome(11));
+//    }
+//}
 public class NumberPalindrome {
+    // write code here
     public static boolean isPalindrome (int number) {
-        if (number <= 9 && number >= -9) return true;
-        else {
-            int abs = Math.abs(number);
-            int revertNumber = 0;
-            while (abs > 0) {
-                revertNumber = revertNumber * 10 + abs % 10;
-                abs /= 10;
-            }
-            if (Math.abs(number) == revertNumber) return true;
-            else return false;
+        int reverse = 0;
+        int newNumber = number;
+        while (newNumber != 0) {
+            reverse = reverse * 10 + newNumber % 10;
+            newNumber /= 10;
         }
+        return number == reverse;
     }
 
     public static void main(String[] args) {
-        System.out.println(isPalindrome(11));
+        System.out.println(isPalindrome(101));
     }
 }

@@ -1,18 +1,17 @@
 public class LargestPrime {
-    public static int getLargestPrime(int number) {
+    // write code here
+    public static int getLargestPrime (int number) {
         int max = 0;
-        if (number <= 1) return -1;
+        if (number < 2) return -1;
         else {
-            int temp = number;
-            for (int i = 2; i <= number; i++) {
-                while (temp % i == 0) {
+            for (int i = 2; i <= number; i += 1) {
+                while (number % i == 0) {
                     max = i;
-                    temp /= i;
-                    continue;
+                    number /= i;
                 }
             }
-            return max;
         }
+        return max;
     }
 
     public static void main(String[] args) {
