@@ -13,6 +13,6 @@ public class Main {
         System.out.printf("Length = %d %n", length);
         System.out.printf("First char = %c %n", string.charAt(0));
         System.out.printf("last char = %c %n", string.charAt(length-1));
-
+    //test
     }
 }
